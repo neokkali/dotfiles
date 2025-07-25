@@ -16,6 +16,7 @@ return {
 		treesitter.setup({ -- enable syntax highlighting
 			highlight = {
 				enable = true,
+				additional_vim_regex_highlighting = false,
 			},
 			-- enable indentation
 			indent = { enable = true },
@@ -65,5 +66,11 @@ return {
 				enable_close_on_slash = true,
 			},
 		})
+
+		vim.o.foldmethod = "expr"
+		vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+		vim.o.foldlevel = 99
+
+		vim.keymap.set("n", "<leader>z", "za", { desc = "Folding lines" }, { noremap = true, silent = true })
 	end,
 }
