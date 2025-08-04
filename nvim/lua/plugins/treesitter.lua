@@ -67,10 +67,16 @@ return {
 			},
 		})
 
-		vim.o.foldmethod = "expr"
-		vim.o.foldexpr = "nvim_treesitter#foldexpr()"
-		vim.o.foldlevel = 99
+		-- vim.o.foldmethod = "manual"
+		-- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+		-- vim.o.foldlevel = 99
 
-		vim.keymap.set("n", "<leader>z", "za", { desc = "Folding lines" }, { noremap = true, silent = true })
+		-- vim.keymap.set(
+		-- 	"v",
+		-- 	"<leader>z",
+		-- 	":normal! za<CR>",
+		-- 	{ desc = "Fold selected lines", noremap = true, silent = true }
+		-- )
+		-- vim.keymap.set("v", "<leader>z", "za", { desc = "Folding lines", noremap = true, silent = true })
 	end,
 }

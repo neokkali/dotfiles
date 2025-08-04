@@ -1,14 +1,21 @@
+autostart
+baloofileinformationrc
 btop
-nextjs-nodejs
+chromium
+clerk
 Code
+create-next-app-nodejs
 dconf
 Docker Desktop
 dolphinrc
 enchant
 filetypesrc
+fontconfig
 gedit
 GIMP
 google-chrome
+gtk-3.0
+gtk-4.0
 kdeglobals
 kde.org
 kiorc
@@ -16,6 +23,7 @@ knfsshare
 kservicemenurc
 ktrashrc
 mimeapps.list
+nextjs-nodejs
 nwg-look
 pavucontrol.ini
 Postman
@@ -23,8 +31,11 @@ pulse
 qt5ct
 qt6ct
 QtProject.conf
+sanity
 session
+stripe
 Thunar
+transmission
 trashrc
 vlc
 xfce4

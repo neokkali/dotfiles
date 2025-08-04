@@ -1,0 +1,13 @@
+default-timeout=5000
+
+ignore-timeout=false
+
+# شفافية خفيفة وشكل أفضل
+background-color=#1e1e2eff
+text-color=#ffffffff
+border-color=#5e81acff
+border-size=2
+padding=10
+border-radius=8
+font=JetBrainsMono Nerd Font 12
+
