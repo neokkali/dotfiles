@@ -34,9 +34,11 @@ QtProject.conf
 sanity
 session
 stripe
+systemd
 Thunar
 transmission
 trashrc
+turborepo
 vlc
 xfce4
 xsettingsd
