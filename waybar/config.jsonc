@@ -118,6 +118,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%I:%M %p}",      // 12 ساعة مع AM/PM
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {

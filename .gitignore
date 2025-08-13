@@ -4,6 +4,7 @@ btop
 chromium
 clerk
 Code
+configstore
 create-next-app-nodejs
 dconf
 Docker Desktop
@@ -11,11 +12,13 @@ dolphinrc
 enchant
 filetypesrc
 fontconfig
+foot
 gedit
 GIMP
 google-chrome
 gtk-3.0
 gtk-4.0
+inngest
 kdeglobals
 kde.org
 kiorc
@@ -23,6 +26,7 @@ knfsshare
 kservicemenurc
 ktrashrc
 mimeapps.list
+nautilus
 nextjs-nodejs
 nwg-look
 pavucontrol.ini
@@ -39,6 +43,8 @@ Thunar
 transmission
 trashrc
 turborepo
+user-dirs.dirs
+user-dirs.locale
 vlc
 xfce4
 xsettingsd
