@@ -1,0 +1,68 @@
+# alacritty.yml
+# Catppuccin Mocha Theme for Alacritty
+# Adapted from Kitty settings
+
+# Font configuration
+font:
+  normal:
+    family: "JetBrainsMono Nerd Font"
+    style: Regular
+  bold:
+    family: "JetBrainsMono Nerd Font"
+    style: Bold
+  italic:
+    family: "JetBrainsMono Nerd Font"
+    style: Italic
+  size: 13.5
+
+# Cursor
+cursor:
+  style: Block
+  unfocused_hollow: false
+
+# Colors
+colors:
+  primary:
+    background: "0x1e1e2e" # kitty background
+    foreground: "0xcdd6f4" # kitty foreground
+
+  normal:
+    black: "0x181825" # mantle
+    red: "0x5e3f53" # removed_bg
+    green: "0x475a51" # added_bg
+    yellow: "0x766c62" # search_bg
+    blue: "0x3e5767" # select_bg
+    magenta: "0x734a5f" # removed_margin_bg / highlight
+    cyan: "0x628168" # highlight_added_bg
+    white: "0xa6adc8" # subtext0 / margin_fg
+
+  bright:
+    black: "0x181825"
+    red: "0x89556b" # highlight_removed_bg
+    green: "0x628168" # highlight_added_bg
+    yellow: "0x766c62"
+    blue: "0x3e5767"
+    magenta: "0x734a5f"
+    cyan: "0x3e5767"
+    white: "0xcdd6f4"
+
+  # Selection colors
+  selection:
+    text: "0xcdd6f4"
+    background: "0x3e5767"
+
+  # URL color (dotted in kitty cannot be replicated, just color)
+  hyperlink:
+    foreground: "0x0087bd"
+    underline: true
+
+# Background opacity (transparency)
+background_opacity: 0.95
+
+# Hide mouse cursor when typing (seconds)
+mouse:
+  hide_when_typing: true
+  hide_timeout: 2.0
+
+# Other options
+draw_bold_text_with_bright_colors: true

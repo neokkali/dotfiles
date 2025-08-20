@@ -20,13 +20,13 @@ require("lazy").setup({
 	spec = {
 		-- import your plugins
 		{ import = "plugins" },
-    { import = "plugins.lsp" },
+		{ import = "plugins.lsp" },
 	},
-	checker = { enabled = true },
+	checker = { enabled = true, notify = false },
 	change_detection = {
 		notify = false,
 	},
-	rocks = {
-		enabled = false,
-	},
+	-- rocks = {
+	-- 	enabled = false,
+	-- },
 })

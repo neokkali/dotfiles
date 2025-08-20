@@ -24,6 +24,7 @@ return {
 
 		telescope.setup({
 			defaults = {
+				file_ignore_patterns = { "node_modules" },
 				path_display = { "smart" },
 				mappings = {
 					i = {

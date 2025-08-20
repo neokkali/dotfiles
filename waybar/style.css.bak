@@ -114,11 +114,6 @@ button:hover {
   margin: 0 4px;
 }
 
-/* #window label { */
-/*   font-size: 1rem; */
-/*   font-style: italic; */
-/* } */
-
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
   margin-left: 0;
@@ -295,7 +290,6 @@ label:focus {
   color: #740864;
   padding: 0 5px;
   min-width: 16px;
-  border-radius: 10px 0 0 10px;
 }
 
 #keyboard-state {
