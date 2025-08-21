@@ -26,6 +26,12 @@
     }
   },
 
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "en",
+    "format-ar": "ar"
+  },
+
   "keyboard-state": {
     "numlock": true,
     "capslock": true,

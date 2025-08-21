@@ -1,6 +1,5 @@
 * {
-  /* font-family: 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace; */
-  font-family: "JetBrainsMono Nerd Font", "Noto Sans Mono", monospace;
+  font-family: "Adwaita Sans", "Noto Sans Mono", "Font Awesome 6 Free";
   font-size: 13px;
 }
 
@@ -65,7 +64,7 @@ button:hover {
 }
 
 #workspaces button {
-  padding: 0 5px;
+  padding: 0 7px;
   background-color: transparent;
   color: #ffffff;
 }
@@ -77,6 +76,10 @@ button:hover {
 #workspaces button.focused {
   background-color: #64727d;
   box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.active {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 #workspaces button.urgent {
@@ -293,9 +296,10 @@ label:focus {
 #language {
   background: #00b093;
   color: #740864;
-  padding: 0 5px;
-  min-width: 16px;
+  padding: 0 15px;
+  min-width: 19px;
   border-radius: 10px 0 0 10px;
+  font-size: 15px;
 }
 
 #keyboard-state {
