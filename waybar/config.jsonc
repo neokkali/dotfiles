@@ -20,6 +20,7 @@
     "modules-center": [
     ],
     "modules-right": [
+      // "wlr/taskbar",
       // "cpu",
       // "memory",
       // "temperature",
@@ -33,5 +34,5 @@
       "tray",
       // "idle_inhibitor",
       "custom/power"
-    ],
+    ]
 }
