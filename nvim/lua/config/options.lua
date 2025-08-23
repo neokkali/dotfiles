@@ -2,6 +2,8 @@ vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt
 
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 opt.relativenumber = true
 opt.number = true
 opt.scrolloff = 10 -- Keep 10 lines above/below cursor
