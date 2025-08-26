@@ -1,4 +1,6 @@
 autostart
+gtk-3
+gtk-4
 MongoDB Compass
 baloofileinformationrc
 btop
