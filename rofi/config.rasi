@@ -3,4 +3,5 @@
 
 configuration {
   show-icons: true;
+  drun-use-history: true;
 }

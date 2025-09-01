@@ -22,8 +22,18 @@ window#waybar.hidden {
   padding-right: 12px;
   border-radius: 6px;
 }
+
 #custom-power:hover {
   background-color: #c0392b;
+}
+
+#custom-notification {
+  background-color: rgba(43, 48, 59, 0.5);
+  font-size: 14px;
+  color: #ffffff;
+  padding: 0 10px;
+  padding-right: 12px;
+  border-radius: 6px;
 }
 
 /*
@@ -299,6 +309,8 @@ label:focus {
   padding: 0 5px;
   min-width: 16px;
   border-radius: 10px 0 0 10px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 #keyboard-state {
