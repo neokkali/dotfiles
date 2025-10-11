@@ -240,6 +240,13 @@
     "format": "{}"
   },
 
+  "custom/cliphist": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/cliphist-icon.sh",
+    "interval": 5,
+    "on-click": "cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy"
+  },
+
   "custom/power": {
     "format": "⏻",
     "tooltip": "Power Menu",

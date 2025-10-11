@@ -25,6 +25,7 @@
       // "memory",
       // "temperature",
       "hyprland/language",
+      // "custom/cliphist",
       "pulseaudio",
       "network",
       "power-profiles-daemon",
