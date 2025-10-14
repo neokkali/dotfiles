@@ -4,8 +4,12 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     "mode": "dock",
+    "exclusive": true,
+    "passthrough": true,
+    "gtk-layer-shell": true,
+    "reload_style_on_change": true,
+    "spacing": 2, // Gaps between modules (4px)
     // "width": 1280, // Waybar width
-    "spacing": 3, // Gaps between modules (4px)
 
     "include": [
       "~/.config/waybar/modules.json"
@@ -13,6 +17,7 @@
 
     "modules-left": [
       "hyprland/workspaces",
+      // "wlr/taskbar",
       "hyprland/window"
       // "sway/mode",
       // "sway/scratchpad"

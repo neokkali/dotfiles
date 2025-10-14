@@ -304,12 +304,13 @@ label:focus {
 }
 
 #language {
-  background-color: rgba(250, 250, 250, 0.2);
+  background: #00b093;
+  color: #740864;
   padding: 0 5px;
-  min-width: 30px;
+  min-width: 16px;
   border-radius: 10px 0 0 10px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 #keyboard-state {
