@@ -1,46 +1,20 @@
-# background_opacity = 0.95
+[general]
+import = [ "~/.config/alacritty/themes/catppuccin/catppuccin-mocha.toml" ]
 
-[colors]
-draw_bold_text_with_bright_colors = true
+[window]
+opacity = 0.96
+decorations = "Full"
 
-[colors.bright]
-black = "0x181825"
-blue = "0x3e5767"
-cyan = "0x3e5767"
-green = "0x628168"
-magenta = "0x734a5f"
-red = "0x89556b"
-white = "0xcdd6f4"
-yellow = "0x766c62"
-
-# [colors.hyperlink]
-# foreground = "0x0087bd"
-# underline = true
-
-[colors.normal]
-black = "0x181825"
-blue = "0x3e5767"
-cyan = "0x628168"
-green = "0x475a51"
-magenta = "0x734a5f"
-red = "0x5e3f53"
-white = "0xa6adc8"
-yellow = "0x766c62"
-
-[colors.primary]
-background = "0x1e1e2e"
-foreground = "0xcdd6f4"
-
-[colors.selection]
-background = "0x3e5767"
-text = "0xcdd6f4"
-
-[cursor]
-style = "Block"
-unfocused_hollow = false
+[window.padding]
+x = 6
+y = 6
 
 [font]
-size = 13.5
+size = 13.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
@@ -50,10 +24,32 @@ style = "Bold"
 family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
-[font.normal]
-family = "JetBrainsMono Nerd Font"
-style = "Regular"
+[font.offset]
+x = 0
+y = 1
 
-[mouse]
-# hide_timeout = 2.0
-hide_when_typing = true
+[cursor]
+unfocused_hollow = true
+
+[cursor.style]
+shape = "Beam"       # المؤشر خط
+blinking = "On"
+
+[cursor.vi_mode_style]
+shape = "Beam"
+
+[colors.primary]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[colors.selection]
+text = "#cdd6f4"
+background = "#3e5767"
+
+[colors.search.matches]
+foreground = "#cdd6f4"
+background = "#766c62"
+
+[colors.search.focused_match]
+foreground = "#cdd6f4"
+background = "#628168"

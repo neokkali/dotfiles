@@ -99,6 +99,29 @@ return {
 						capabilities = capabilities,
 					})
 				end,
+				["eslint"] = function()
+					lspconfig["eslint"].setup({
+						capabilities = capabilities,
+						settings = {
+							-- إعدادات حديثة متوافقة مع ESLint v9
+							-- New settings work with ESLint v9
+							workingDirectory = { mode = "auto" },
+							codeAction = {
+								disableRuleComment = { enable = true, location = "separateLine" },
+								showDocumentation = { enable = true },
+							},
+							format = { enable = true },
+						},
+						on_attach = function(client, bufnr)
+							-- تصحيح تلقائي عند الحفظ
+							-- Correction on save
+							vim.api.nvim_create_autocmd("BufWritePre", {
+								buffer = bufnr,
+								command = "EslintFixAll",
+							})
+						end,
+					})
+				end,
 				["svelte"] = function()
 					-- configure svelte server
 					lspconfig["svelte"].setup({
