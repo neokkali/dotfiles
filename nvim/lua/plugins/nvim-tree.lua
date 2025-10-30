@@ -36,23 +36,6 @@ return {
 			actions = {
 				open_file = { window_picker = { enable = false }, quit_on_open = false },
 			},
-			on_attach = function(bufnr)
-				local opts = { buffer = bufnr, noremap = true, silent = true }
-
-				-- إعادة تعيين Enter لفتح الملفات بشكل ذكي
-				vim.keymap.set("n", "<CR>", function()
-					local node = api.tree.get_node_under_cursor()
-					if not node then
-						return
-					end
-
-					if node.type == "file" then
-						smart_open(node.absolute_path)
-					elseif node.type == "directory" then
-						api.node.open.edit() -- فتح/اغلاق المجلد
-					end
-				end, opts)
-			end,
 			filters = { custom = { ".DS_Store" } },
 			git = { ignore = false },
 		})
