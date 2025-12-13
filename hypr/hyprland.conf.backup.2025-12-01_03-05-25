@@ -26,7 +26,7 @@ env = TERMINAL,alacritty
 # ==================
 exec-once = bash -c "wl-paste --watch cliphist store &"
 exec-once = dms run
-# exec-once = /usr/libexec/polkit-mate-authentication-agent-1
+exec-once = /usr/libexec/polkit-mate-authentication-agent-1
 
 # ==================
 # INPUT CONFIG
@@ -116,16 +116,6 @@ misc {
 # ==================
 # WINDOW RULES
 # ==================
-
-# windowrulev2 = opacity 0.9 0.9,class:^(dolphin)$
-# windowrulev2 = opacity 0.9 0.9,class:^(kitty)
-# windowrulev2 = opacity 0.9 0.9,class:^(Alacritty)
-# windowrulev2 = opacity 0.9 0.9,class:^(gedit)
-# windowrulev2 = opacity 0.9 0.9,class:^(thunar)$
-# windowrulev2 = opacity 0.9 0.9,class:^(Code)$
-# windowrulev2 = opacity 0.9 0.9,class:^(nemo)$
-# windowrulev2 = opacity 0.9 0.9,class:^(org.gnome.Nautilus)$
-
 windowrulev2 = tile, class:^(org\.wezfurlong\.wezterm)$
 
 windowrulev2 = rounding 12, class:^(org\.gnome\.)
@@ -138,10 +128,9 @@ windowrulev2 = tile, class:^(nm-connection-editor)$
 windowrulev2 = float, class:^(gnome-calculator)$
 windowrulev2 = float, class:^(galculator)$
 windowrulev2 = float, class:^(blueman-manager)$
-# windowrulev2 = float, class:^(org\.gnome\.Nautilus)$
+windowrulev2 = float, class:^(org\.gnome\.Nautilus)$
 windowrulev2 = float, class:^(steam)$
 windowrulev2 = float, class:^(xdg-desktop-portal)$
-windowrulev2 = float, class:^(xdg-desktop-portal-gtk)$
 
 windowrulev2 = noborder, class:^(org\.wezfurlong\.wezterm)$
 windowrulev2 = noborder, class:^(Alacritty)$
@@ -197,9 +186,7 @@ bind = $mod, comma, exec, dms ipc call settings toggle
 bind = $mod, N, exec, dms ipc call notifications toggle
 bind = $mod SHIFT, N, exec, dms ipc call notepad toggle
 bind = $mod, Y, exec, dms ipc call dankdash wallpaper
-bind = $mod SHIFT, TAB, exec, dms ipc call hypr toggleOverview
-bind = $mod, Tab, cyclenext,
-bind = $mod, Tab, bringactivetotop,
+bind = $mod, TAB, exec, dms ipc call hypr toggleOverview
 
 
 # === Cheat sheet
@@ -224,7 +211,7 @@ bindel = , XF86MonBrightnessDown, exec, dms ipc call brightness decrement 5 ""
 bind = $mod, Q, killactive
 bind = $mod, space, fullscreen, 1
 bind = $mod SHIFT, space, fullscreen, 0
-bind = $mod, V, togglefloating
+bind = $mod SHIFT, T, togglefloating
 bind = $mod, W, togglegroup
 
 # === Focus Navigation ===
@@ -320,7 +307,7 @@ bind = $mod, bracketleft, layoutmsg, preselect l
 bind = $mod, bracketright, layoutmsg, preselect r
 
 # === Sizing & Layout ===
-bind = $mod, S, layoutmsg, togglesplit
+bind = $mod, V, layoutmsg, togglesplit
 bind = $mod CTRL, F, resizeactive, exact 100%
 
 # === Move/resize windows with mainMod + LMB/RMB and dragging ===

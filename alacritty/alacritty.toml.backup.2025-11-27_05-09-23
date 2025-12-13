@@ -1,0 +1,55 @@
+[general]
+import = [ "~/.config/alacritty/themes/catppuccin/catppuccin-mocha.toml" ]
+
+[window]
+# opacity = 0.96
+decorations = "Full"
+
+[window.padding]
+x = 6
+y = 6
+
+[font]
+size = 13.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[font.offset]
+x = 0
+y = 1
+
+[cursor]
+unfocused_hollow = true
+
+[cursor.style]
+shape = "Beam"       # المؤشر خط
+blinking = "On"
+
+[cursor.vi_mode_style]
+shape = "Beam"
+
+[colors.primary]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[colors.selection]
+text = "#cdd6f4"
+background = "#3e5767"
+
+[colors.search.matches]
+foreground = "#cdd6f4"
+background = "#766c62"
+
+[colors.search.focused_match]
+foreground = "#cdd6f4"
+background = "#628168"
