@@ -122,6 +122,18 @@ return {
 						end,
 					})
 				end,
+				["pyright"] = function()
+					lspconfig.pyright.setup({
+						capabilities = capabilities,
+						settings = {
+							python = {
+								analysis = {
+									maxLineLength = 120,
+								},
+							},
+						},
+					})
+				end,
 				["svelte"] = function()
 					-- configure svelte server
 					lspconfig["svelte"].setup({

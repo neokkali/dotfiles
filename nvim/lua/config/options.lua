@@ -26,6 +26,12 @@ opt.autoindent = true -- copy indent from current line when starting new one
 -- search settings
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+opt.incsearch = true
+opt.inccommand = "split"
+
+opt.isfname:append("@-@")
+opt.updatetime = 50
+-- opt.colorcolumn = "80"
 
 -- turn on termguicolors for tokyonight colorscheme to work
 -- (have to use iterm2 or any other true color terminal)
@@ -35,7 +41,7 @@ opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 opt.showmatch = true -- Hightlight matching brackets
 
 -- backspace
-opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+opt.backspace = { "indent", "eol", "start" } -- allow backspace on indent, end of line or insert mode start position
 
 -- clipboard
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
@@ -46,3 +52,5 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+opt.mouse = "a"
+vim.g.editorconfig = true
