@@ -26,6 +26,9 @@ return {
 			defaults = {
 				file_ignore_patterns = { "node_modules" },
 				path_display = { "smart" },
+				preview = {
+					treesitter = false,
+				},
 				mappings = {
 					i = {
 						["<CR>"] = actions.select_tab, -- Open new tab an any picker
