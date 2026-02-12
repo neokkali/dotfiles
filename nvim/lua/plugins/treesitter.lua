@@ -1,7 +1,8 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = { "BufReadPre", "BufNewFile" },
+	branch = "main",
 	build = ":TSUpdate",
+	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"windwp/nvim-ts-autotag",
 	},
@@ -67,16 +68,16 @@ return {
 			},
 		})
 
-		-- vim.o.foldmethod = "manual"
-		-- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
-		-- vim.o.foldlevel = 99
+		vim.o.foldmethod = "manual"
+		vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+		vim.o.foldlevel = 99
 
-		-- vim.keymap.set(
-		-- 	"v",
-		-- 	"<leader>z",
-		-- 	":normal! za<CR>",
-		-- 	{ desc = "Fold selected lines", noremap = true, silent = true }
-		-- )
-		-- vim.keymap.set("v", "<leader>z", "za", { desc = "Folding lines", noremap = true, silent = true })
+		vim.keymap.set(
+			"v",
+			"<leader>z",
+			":normal! za<CR>",
+			{ desc = "Fold selected lines", noremap = true, silent = true }
+		)
+		vim.keymap.set("v", "<leader>z", "za", { desc = "Folding lines", noremap = true, silent = true })
 	end,
 }
