@@ -57,3 +57,4 @@ vim.g.arabicshape = true
 opt.swapfile = false
 opt.mouse = "a"
 vim.g.editorconfig = true
+-- vim.g.fileformat = "unix"

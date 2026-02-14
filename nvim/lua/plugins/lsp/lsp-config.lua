@@ -72,14 +72,14 @@ return {
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		vim.diagnostic.config({
-			-- 	signs = {
-			-- 		text = {
-			-- 			[vim.diagnostic.severity.ERROR] = "",
-			-- 			[vim.diagnostic.severity.WARN] = "",
-			-- 			[vim.diagnostic.severity.HINT] = "󰠠",
-			-- 			[vim.diagnostic.severity.INFO] = "",
-			-- 		},
-			-- 	},
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = "",
+					[vim.diagnostic.severity.WARN] = "",
+					[vim.diagnostic.severity.HINT] = "󰠠",
+					[vim.diagnostic.severity.INFO] = "",
+				},
+			},
 			virtual_text = false, -- تعطيل النصوص الافتراضية بجانب السطر
 			signs = false, -- تعطيل العلامات الجانبية
 			underline = true, -- إبقاء التسطير (اختياري)

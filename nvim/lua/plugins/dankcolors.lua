@@ -4,22 +4,22 @@ return {
 		priority = 1000,
 		config = function()
 			require('base16-colorscheme').setup({
-				base00 = '#111317',
-				base01 = '#111317',
+				base00 = '#141218',
+				base01 = '#141218',
 				base02 = '#5c6370',
 				base03 = '#5c6370',
 				base04 = '#abb2bf',
 				base05 = '#ffffff',
 				base06 = '#ffffff',
 				base07 = '#ffffff',
-				base08 = '#e05f5f',
-				base09 = '#e05f5f',
-				base0A = '#b2d6ff',
-				base0B = '#87e086',
-				base0C = '#6777af',
-				base0D = '#b2d6ff',
-				base0E = '#4b7da6',
-				base0F = '#4b7da6',
+				base08 = '#e06a5f',
+				base09 = '#e06a5f',
+				base0A = '#dfc9ff',
+				base0B = '#86e08b',
+				base0C = '#8b6ab5',
+				base0D = '#dfc9ff',
+				base0E = '#7c6acd',
+				base0F = '#7c6acd',
 			})
 
 			vim.api.nvim_set_hl(0, 'Visual', {
@@ -28,14 +28,14 @@ return {
 				bold = true
 			})
 			vim.api.nvim_set_hl(0, 'Statusline', {
-				bg = '#b2d6ff',
-				fg = '#111317',
+				bg = '#dfc9ff',
+				fg = '#141218',
 			})
 			vim.api.nvim_set_hl(0, 'LineNr', { fg = '#5c6370' })
-			vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#6777af', bold = true })
+			vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#8b6ab5', bold = true })
 
 			vim.api.nvim_set_hl(0, 'Statement', {
-				fg = '#4b7da6',
+				fg = '#7c6acd',
 				bold = true
 			})
 			vim.api.nvim_set_hl(0, 'Keyword', { link = 'Statement' })
@@ -43,24 +43,24 @@ return {
 			vim.api.nvim_set_hl(0, 'Conditional', { link = 'Statement' })
 
 			vim.api.nvim_set_hl(0, 'Function', {
-				fg = '#b2d6ff',
+				fg = '#dfc9ff',
 				bold = true
 			})
 			vim.api.nvim_set_hl(0, 'Macro', {
-				fg = '#b2d6ff',
+				fg = '#dfc9ff',
 				italic = true
 			})
 			vim.api.nvim_set_hl(0, '@function.macro', { link = 'Macro' })
 
 			vim.api.nvim_set_hl(0, 'Type', {
-				fg = '#6777af',
+				fg = '#8b6ab5',
 				bold = true,
 				italic = true
 			})
 			vim.api.nvim_set_hl(0, 'Structure', { link = 'Type' })
 
 			vim.api.nvim_set_hl(0, 'String', {
-				fg = '#87e086',
+				fg = '#86e08b',
 				italic = true
 			})
 

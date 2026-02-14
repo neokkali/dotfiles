@@ -62,8 +62,15 @@ return {
 						color = { fg = "#ff9e64" },
 					},
 					{ "encoding" },
-					{ "fileformat" },
 					{ "filetype" },
+					{
+						"fileformat",
+						symbols = {
+							unix = "", -- This is the Linux/Tux icon (nf-dev-linux)
+							dos = "", -- Windows icon
+							mac = "", -- Apple icon
+						},
+					},
 				},
 			},
 		})
