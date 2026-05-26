@@ -14,7 +14,7 @@ opt.spelllang = { "en", "ar" } -- Set language for spellchecking
 opt.wrap = true -- Wrap the content of the screen
 opt.linebreak = true
 opt.breakindent = true
-opt.cursorline = true
+-- opt.cursorline = true
 
 -- tabs & indentation
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
@@ -57,15 +57,4 @@ vim.g.arabicshape = true
 opt.swapfile = false
 opt.mouse = "a"
 vim.g.editorconfig = true
-vim.opt.backup = false
-vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
-vim.opt.undofile = true
-
 -- vim.g.fileformat = "unix"
-
-vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Hightlight when yanking (copying) text",
-	callback = function()
-		vim.hl.on_yank()
-	end,
-})

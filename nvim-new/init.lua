@@ -1,8 +1,5 @@
--- init.lua
-require("core.options")
 require("core.keymaps")
+require("core.options")
 require("pack")
 
-
--- vim.cmd.colorscheme("onedark")
-vim.cmd.colorscheme("catppuccin")
+vim.cmd("colorscheme github_dark_default")
