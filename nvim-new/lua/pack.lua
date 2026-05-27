@@ -9,6 +9,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-tree/nvim-tree.lua" },
 	{ src = "https://github.com/akinsho/bufferline.nvim" },
 	{ src = "https://github.com/stevearc/dressing.nvim" },
+	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
 	{ src = "https://github.com/projekt0n/github-nvim-theme" },
 
 	--- treesitter
@@ -50,8 +51,10 @@ require("plugins.conform")
 require("plugins.autopairs")
 require("plugins.autocomplete")
 require("plugins.nvim-lint")
+require("plugins.lualine")
 
 require("nvim-surround").setup()
+
 require("which-key").setup()
 require("fidget").setup()
 require("dressing").setup()
