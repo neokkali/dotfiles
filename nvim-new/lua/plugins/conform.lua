@@ -5,7 +5,7 @@ conform.setup({
 		typescript = { "prettierd" },
 		javascriptreact = { "prettierd" },
 		typescriptreact = { "prettierd" },
-		svelte = { "prettiedr" },
+		svelte = { "prettierd" },
 		css = { "prettierd" },
 		html = { "prettierd" },
 		json = { "prettierd" },
@@ -14,7 +14,7 @@ conform.setup({
 		graphql = { "prettierd" },
 		liquid = { "prettierd" },
 		lua = { "stylua" },
-		python = { "isort" },
+		python = { "isort", "ruff" },
 	},
 	format_on_save = {
 		lsp_fallback = true,

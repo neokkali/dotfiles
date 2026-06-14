@@ -1,60 +1,207 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
-local opt = vim.opt
-
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
-opt.relativenumber = true
-opt.number = true
-opt.scrolloff = 10 -- Keep 10 lines above/below cursor
-opt.sidescrolloff = 8 -- Keep 8 columns left/right of cursor
-opt.cmdheight = 1 -- Command line height
-opt.spelllang = { "en", "ar" } -- Set language for spellchecking
+vim.opt.relativenumber = true
+vim.opt.number = true
+vim.opt.scrolloff = 10 -- Keep 10 lines above/below cursor
+vim.opt.sidescrolloff = 8 -- Keep 8 columns left/right of cursor
+vim.opt.cmdheight = 0 -- Command line height
+vim.opt.spelllang = { "en", "ar" } -- Set language for spellchecking
 
-opt.wrap = true -- Wrap the content of the screen
-opt.linebreak = true
-opt.breakindent = true
-opt.cursorline = true
+vim.opt.wrap = true -- Wrap the content of the screen
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+-- vim.opt.cursorline = true
 
 -- tabs & indentation
-opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 2 -- 2 spaces for indent width
-opt.expandtab = true -- expand tab to spaces
-opt.smartindent = true
-opt.autoindent = true -- copy indent from current line when starting new one
+vim.opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
+vim.opt.shiftwidth = 2 -- 2 spaces for indent width
+vim.opt.expandtab = true -- expand tab to spaces
+vim.opt.smartindent = true
+vim.opt.autoindent = true -- copy indent from current line when starting new one
 
 -- search settings
-opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
-opt.incsearch = true
-opt.inccommand = "split"
+vim.opt.ignorecase = true -- ignore case when searching
+vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+vim.opt.incsearch = true
+vim.opt.inccommand = "split"
 
-opt.isfname:append("@-@")
-opt.updatetime = 50
+vim.opt.isfname:append("@-@")
+vim.opt.updatetime = 50
 -- opt.colorcolumn = "80"
 
 -- turn on termguicolors for tokyonight colorscheme to work
 -- (have to use iterm2 or any other true color terminal)
-opt.termguicolors = true
-opt.background = "dark" -- colorschemes that can be light or dark will be made dark
-opt.signcolumn = "yes" -- show sign column so that text doesn't shift
-opt.showmatch = true -- Hightlight matching brackets
+vim.opt.termguicolors = true
+vim.opt.background = "dark" -- colorschemes that can be light or dark will be made dark
+vim.opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+vim.opt.showmatch = true -- Hightlight matching brackets
 
 -- backspace
-opt.backspace = { "indent", "eol", "start" } -- allow backspace on indent, end of line or insert mode start position
+vim.opt.backspace = { "indent", "eol", "start" } -- allow backspace on indent, end of line or insert mode start position
 
 -- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 -- split windows
-opt.splitright = true -- split vertical window to the right
-opt.splitbelow = true -- split horizontal window to the bottom
+vim.opt.splitright = true -- split vertical window to the right
+vim.opt.splitbelow = true -- split horizontal window to the bottom
 
-opt.encoding = "utf-8"
+vim.opt.encoding = "utf-8"
 vim.g.arabicshape = true
 
 -- turn off swapfile
-opt.swapfile = false
-opt.mouse = "a"
-vim.g.editorconfig = true
 -- vim.g.fileformat = "unix"
+vim.opt.swapfile = false
+vim.opt.mouse = "a"
+vim.g.editorconfig = true
+-- undo
+vim.opt.backup = false
+vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
+vim.opt.undofile = false
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Hightlight when yanking  (copying) text",
+	callback = function()
+		vim.cmd("let g:netrw_liststyle = 3")
+		vim.cmd("let g:netrw_liststyle = 3")
+
+		vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+		vim.opt.relativenumber = true
+		vim.opt.number = true
+		vim.opt.scrolloff = 10 -- Keep 10 lines above/below cursor
+		vim.opt.sidescrolloff = 8 -- Keep 8 columns left/right of cursor
+		vim.opt.cmdheight = 0 -- Command line height
+		vim.opt.spelllang = { "en", "ar" } -- Set language for spellchecking
+
+		vim.opt.wrap = true -- Wrap the content of the screen
+		vim.opt.linebreak = true
+		vim.opt.breakindent = true
+		-- vim.opt.cursorline = true
+
+		-- tabs & indentation
+		vim.opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
+		vim.opt.shiftwidth = 2 -- 2 spaces for indent width
+		vim.opt.expandtab = true -- expand tab to spaces
+		vim.opt.smartindent = true
+		vim.opt.autoindent = true -- copy indent from current line when starting new one
+
+		-- search settings
+		vim.opt.ignorecase = true -- ignore case when searching
+		vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+		vim.opt.incsearch = true
+		vim.opt.inccommand = "split"
+
+		vim.opt.isfname:append("@-@")
+		vim.opt.updatetime = 50
+		-- opt.colorcolumn = "80"
+
+		-- turn on termguicolors for tokyonight colorscheme to work
+		-- (have to use iterm2 or any other true color terminal)
+		vim.opt.termguicolors = true
+		vim.opt.background = "dark" -- colorschemes that can be light or dark will be made dark
+		vim.opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+		vim.opt.showmatch = true -- Hightlight matching brackets
+
+		-- backspace
+		vim.opt.backspace = { "indent", "eol", "start" } -- allow backspace on indent, end of line or insert mode start position
+
+		-- clipboard
+		vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+
+		-- split windows
+		vim.opt.splitright = true -- split vertical window to the right
+		vim.opt.splitbelow = true -- split horizontal window to the bottom
+
+		vim.opt.encoding = "utf-8"
+		vim.g.arabicshape = true
+
+		-- turn off swapfile
+		-- vim.g.fileformat = "unix"
+		vim.opt.swapfile = false
+		vim.opt.mouse = "a"
+		vim.g.editorconfig = true
+		-- undo
+		vim.opt.backup = false
+		vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
+		vim.opt.undofile = false
+
+		vim.api.nvim_create_autocmd("TextYankPost", {
+			desc = "Hightlight when yanking  (copying) text",
+			callback = function()
+				vim.hl.on_yank()
+			end,
+		})
+
+		vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+		vim.opt.relativenumber = true
+		vim.opt.number = true
+		vim.opt.scrolloff = 10 -- Keep 10 lines above/below cursor
+		vim.opt.sidescrolloff = 8 -- Keep 8 columns left/right of cursor
+		vim.opt.cmdheight = 0 -- Command line height
+		vim.opt.spelllang = { "en", "ar" } -- Set language for spellchecking
+
+		vim.opt.wrap = true -- Wrap the content of the screen
+		vim.opt.linebreak = true
+		vim.opt.breakindent = true
+		-- vim.opt.cursorline = true
+
+		-- tabs & indentation
+		vim.opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
+		vim.opt.shiftwidth = 2 -- 2 spaces for indent width
+		vim.opt.expandtab = true -- expand tab to spaces
+		vim.opt.smartindent = true
+		vim.opt.autoindent = true -- copy indent from current line when starting new one
+
+		-- search settings
+		vim.opt.ignorecase = true -- ignore case when searching
+		vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+		vim.opt.incsearch = true
+		vim.opt.inccommand = "split"
+
+		vim.opt.isfname:append("@-@")
+		vim.opt.updatetime = 50
+		-- opt.colorcolumn = "80"
+
+		-- turn on termguicolors for tokyonight colorscheme to work
+		-- (have to use iterm2 or any other true color terminal)
+		vim.opt.termguicolors = true
+		vim.opt.background = "dark" -- colorschemes that can be light or dark will be made dark
+		vim.opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+		vim.opt.showmatch = true -- Hightlight matching brackets
+
+		-- backspace
+		vim.opt.backspace = { "indent", "eol", "start" } -- allow backspace on indent, end of line or insert mode start position
+
+		-- clipboard
+		vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+
+		-- split windows
+		vim.opt.splitright = true -- split vertical window to the right
+		vim.opt.splitbelow = true -- split horizontal window to the bottom
+
+		vim.opt.encoding = "utf-8"
+		vim.g.arabicshape = true
+
+		-- turn off swapfile
+		-- vim.g.fileformat = "unix"
+		vim.opt.swapfile = false
+		vim.opt.mouse = "a"
+		vim.g.editorconfig = true
+		-- undo
+		vim.opt.backup = false
+		vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
+		vim.opt.undofile = false
+
+		vim.api.nvim_create_autocmd("TextYankPost", {
+			desc = "Hightlight when yanking  (copying) text",
+			callback = function()
+				vim.hl.on_yank()
+			end,
+		})
+		vim.hl.on_yank()
+	end,
+})

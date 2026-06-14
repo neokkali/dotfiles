@@ -12,6 +12,10 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
 	{ src = "https://github.com/projekt0n/github-nvim-theme" },
 
+	--- auto seesion
+	{ src = "https://github.com/rmagatti/auto-session" },
+	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
+
 	--- treesitter
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main" },
 	{ src = "https://github.com/windwp/nvim-ts-autotag" },
@@ -52,6 +56,7 @@ require("plugins.autopairs")
 require("plugins.autocomplete")
 require("plugins.nvim-lint")
 require("plugins.lualine")
+require("plugins.auto-session")
 
 require("nvim-surround").setup()
 
@@ -66,3 +71,10 @@ require("bufferline").setup({
 require("ibl").setup({
 	indent = { char = "▏" },
 })
+
+-- اختصارات التنقل بين Neovim و Tmux
+vim.keymap.set("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>", { silent = true })
+vim.keymap.set("n", "<c-j>", "<cmd>TmuxNavigateDown<cr>", { silent = true })
+vim.keymap.set("n", "<c-k>", "<cmd>TmuxNavigateUp<cr>", { silent = true })
+vim.keymap.set("n", "<c-l>", "<cmd>TmuxNavigateRight<cr>", { silent = true })
+vim.keymap.set("n", "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>", { silent = true })

@@ -12,6 +12,9 @@ vim.opt.spelllang = { "en", "ar" } -- Set language for spellchecking
 vim.opt.wrap = true -- Wrap the content of the screen
 vim.opt.linebreak = true
 vim.opt.breakindent = true
+-- New
+vim.opt.numberwidth = 4
+
 -- vim.opt.cursorline = true
 
 -- tabs & indentation
@@ -60,3 +63,10 @@ vim.g.editorconfig = true
 vim.opt.backup = false
 vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
 vim.opt.undofile = false
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Hightlight when yanking  (copying) text",
+	callback = function()
+		vim.hl.on_yank()
+	end,
+})

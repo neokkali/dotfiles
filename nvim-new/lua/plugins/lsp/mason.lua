@@ -30,17 +30,23 @@ mason_lspconfig.setup({
 		"prismals",
 		"pyright",
 		"eslint",
+		"gopls",
 	},
 })
 
 mason_tool_installer.setup({
 	ensure_installed = {
-		-- "prettier", -- prettier formatter
-		"prettierd", -- prettier formatter
-		"stylua", -- lua formatter
-		"isort", -- python formatter
-		"flake8",
-		"pylint",
+		"prettierd",
+		"stylua",
+		-- JavaScript/TypeScript
 		"eslint_d",
+		-- Go (اختياري)
+		"gofumpt",
+		"goimports",
+
+		-- Python
+		"pyright",
+		"ruff",
+		"isort",
 	},
 })
