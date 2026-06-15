@@ -164,9 +164,9 @@ mason_lspconfig.setup({
 				filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
 			})
 		end,
-		["emmet_ls"] = function()
-			-- configure emmet language server
-			lspconfig["emmet_ls"].setup({
+		["emmet_language_server"] = function()
+			-- configure the new emmet language server
+			lspconfig["emmet_language_server"].setup({
 				capabilities = capabilities,
 				filetypes = {
 					"html",
@@ -178,8 +178,30 @@ mason_lspconfig.setup({
 					"less",
 					"svelte",
 				},
+				init_options = {
+					preferences = {
+						["jsx.enforceAttributeNameAsClassname"] = true,
+					},
+				},
 			})
 		end,
+
+		-- ["emmet_ls"] = function()
+		-- 	-- configure emmet language server
+		-- 	lspconfig["emmet_ls"].setup({
+		-- 		capabilities = capabilities,
+		-- 		filetypes = {
+		-- 			"html",
+		-- 			"typescriptreact",
+		-- 			"javascriptreact",
+		-- 			"css",
+		-- 			"sass",
+		-- 			"scss",
+		-- 			"less",
+		-- 			"svelte",
+		-- 		},
+		-- 	})
+		-- end,
 		["lua_ls"] = function()
 			-- configure lua server (with special settings)
 			lspconfig["lua_ls"].setup({

@@ -44,6 +44,8 @@ mason_tool_installer.setup({
 		"gofumpt",
 		"goimports",
 
+		"emmet-language-server",
+
 		-- Python
 		"pyright",
 		"ruff",

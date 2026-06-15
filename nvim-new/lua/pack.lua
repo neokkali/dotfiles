@@ -57,20 +57,14 @@ require("plugins.autocomplete")
 require("plugins.nvim-lint")
 require("plugins.lualine")
 require("plugins.auto-session")
+require("plugins.bufferline")
+-- require("plugins.indent-blankline")
 
 require("nvim-surround").setup()
 
 require("which-key").setup()
 require("fidget").setup()
 require("dressing").setup()
-require("bufferline").setup({
-	options = {
-		mode = "tabs",
-	},
-})
-require("ibl").setup({
-	indent = { char = "▏" },
-})
 
 -- اختصارات التنقل بين Neovim و Tmux
 vim.keymap.set("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>", { silent = true })
