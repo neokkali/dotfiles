@@ -1,11 +1,7 @@
 local mason = require("mason")
-
--- import mason-lspconfig
 local mason_lspconfig = require("mason-lspconfig")
-
 local mason_tool_installer = require("mason-tool-installer")
 
--- enable mason and configure icons
 mason.setup({
 	ui = {
 		icons = {
@@ -17,7 +13,7 @@ mason.setup({
 })
 
 mason_lspconfig.setup({
-	-- list of servers for mason to install
+	-- قائمة السيرفرات التي سيقوم ماسون بتثبيتها
 	ensure_installed = {
 		"ts_ls",
 		"html",
@@ -26,10 +22,10 @@ mason_lspconfig.setup({
 		"svelte",
 		"lua_ls",
 		"graphql",
-		"emmet_ls",
+		"emmet_language_server", -- توحيد الاسم هنا للاستقرار
 		"prismals",
 		"pyright",
-		"eslint",
+		-- "eslint",
 		"gopls",
 	},
 })
@@ -38,15 +34,10 @@ mason_tool_installer.setup({
 	ensure_installed = {
 		"prettierd",
 		"stylua",
-		-- JavaScript/TypeScript
 		"eslint_d",
-		-- Go (اختياري)
 		"gofumpt",
 		"goimports",
-
 		"emmet-language-server",
-
-		-- Python
 		"pyright",
 		"ruff",
 		"isort",

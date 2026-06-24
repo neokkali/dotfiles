@@ -85,12 +85,12 @@ mason_lspconfig.setup({
 				capabilities = capabilities,
 			})
 		end,
+
 		["eslint"] = function()
 			lspconfig["eslint"].setup({
 				capabilities = capabilities,
 				settings = {
-					-- إعدادات حديثة متوافقة مع ESLint v9
-					-- New settings work with ESLint v9
+					-- إعدادات متوافقة مع ESLint v9 الحديث
 					workingDirectory = { mode = "auto" },
 					codeAction = {
 						disableRuleComment = { enable = true, location = "separateLine" },
@@ -99,11 +99,19 @@ mason_lspconfig.setup({
 					format = { enable = true },
 				},
 				on_attach = function(client, bufnr)
-					-- تصحيح تلقائي عند الحفظ
-					-- Correction on save
+					-- إنشاء مجموعة تنظيف لمنع تكرار الـ autocmd عند إعادة فتح الملفات
+					local eslint_group = vim.api.nvim_create_augroup("EslintFormat", { clear = false })
+					vim.api.nvim_clear_autocmds({ group = eslint_group, buffer = bufnr })
+
+					-- تصحيح تلقائي عند الحفظ بشكل آمن ومستقر
 					vim.api.nvim_create_autocmd("BufWritePre", {
+						group = eslint_group,
 						buffer = bufnr,
-						command = "EslintFixAll",
+						-- WARN: Maybe here will cause problem
+						-- command = "EslintFixAll",
+						command = "LspEslintFixAll",
+
+						desc = "Fix all ESLint errors before saving",
 					})
 				end,
 			})
@@ -161,7 +169,9 @@ mason_lspconfig.setup({
 			-- configure graphql language server
 			lspconfig["graphql"].setup({
 				capabilities = capabilities,
-				filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+				filetypes = { "graphql", "gql" },
+				-- INFO: Return this if you want write gql inside the tsx or jsx files
+				-- filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
 			})
 		end,
 		["emmet_language_server"] = function()
@@ -208,16 +218,49 @@ mason_lspconfig.setup({
 				capabilities = capabilities,
 				settings = {
 					Lua = {
-						-- make the language server recognize "vim" global
 						diagnostics = {
 							globals = { "vim" },
+						},
+						workspace = {
+							-- ✅ الطريقة الحديثة والآمنة لجلب ملفات النيوفيم دون مسح النظام بالكامل وبسرعة فائقة
+							library = {
+								[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+								[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+							},
+							maxPreload = 1000,
+							preloadFileSize = 150,
 						},
 						completion = {
 							callSnippet = "Replace",
 						},
+						hint = { enable = true },
 					},
 				},
 			})
 		end,
+		-- ["lua_ls"] = function()
+		-- 	-- configure lua server (with special settings)
+		-- 	lspconfig["lua_ls"].setup({
+		-- 		capabilities = capabilities,
+		-- 		settings = {
+		-- 			Lua = {
+		-- 				-- make the language server recognize "vim" global
+		-- 				diagnostics = {
+		-- 					globals = { "vim" },
+		-- 				},
+		-- 				-- BUG: If any error this the cause
+		-- 				workspace = {
+		-- 					-- Make the server aware of Neovim runtime files
+		-- 					library = vim.api.nvim_get_runtime_file("", true),
+		-- 				},
+		-- 				completion = {
+		-- 					callSnippet = "Replace",
+		-- 				},
+		--
+		-- 				hint = { enable = true },
+		-- 			},
+		-- 		},
+		-- 	})
+		-- end,
 	},
 })

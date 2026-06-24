@@ -48,6 +48,15 @@ vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) 
 vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 vim.keymap.set("n", "<leader>tl", ":tabonly<CR>", { desc = "Keep current tab only" })
+vim.keymap.set("n", "<leader>tr", function()
+	local current_tab = vim.fn.tabpagenr()
+	local total_tabs = vim.fn.tabpagenr("$")
+	while current_tab < total_tabs do
+		vim.cmd("tabclose " .. (current_tab + 1))
+		total_tabs = total_tabs - 1
+		-- Decrement the count as tabs vanish from the right
+	end
+end, { desc = "Close all tabs to the right" })
 -- vim.keymap.set("n", "<leader>tl", ":1tabonly<CR>", { desc = "Keep first tab only" })
 
 -- Native undotree

@@ -1,23 +1,45 @@
+-- local hooks = function(ev)
+-- 	local name, kind = ev.data.spec.name, ev.data.kind
+-- 	if name == "telescope-fzf-native.nvim" and (kind == "install" or kind == "update") then
+-- 		vim.system({ "make" }, { cwd = ev.data.path }):wait()
+-- 	end
+-- end
+
+-- vim.api.nvim_create_autocmd("PackChanged", { callback = hooks })
+
 vim.pack.add({
 	--- telescope
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
+	-- Old Icon
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
+	{ src = "https://github.com/echasnovski/mini.icons" },
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
+	-- { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
+
 	-- { src =  "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
+	{ src = "https://github.com/folke/todo-comments.nvim" },
 
 	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/nvim-tree/nvim-tree.lua" },
 	{ src = "https://github.com/akinsho/bufferline.nvim" },
 	{ src = "https://github.com/stevearc/dressing.nvim" },
 	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
+
+	-- themes
 	{ src = "https://github.com/projekt0n/github-nvim-theme" },
+	{ src = "https://github.com/rebelot/kanagawa.nvim" },
+	{ src = "https://github.com/EdenEast/nightfox.nvim" },
+	{ src = "https://github.com/rose-pine/neovim", name = "rose-pine" },
+	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+	{ src = "https://github.com/sainnhe/everforest" },
 
 	--- auto seesion
 	{ src = "https://github.com/rmagatti/auto-session" },
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
 
 	--- treesitter
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main" },
+	-- { src = "nvim-treesitter/nvim-treesitter", branch = "master", run = ":TSUpdate" },
+	{ src = "nvim-treesitter/nvim-treesitter", branch = "main" },
 	{ src = "https://github.com/windwp/nvim-ts-autotag" },
 
 	--- lsp
@@ -29,7 +51,6 @@ vim.pack.add({
 	{ src = "https://github.com/j-hui/fidget.nvim" },
 
 	--- autocomplete
-	{ src = "https://github.com/hrsh7th/nvim-cmp" },
 	{ src = "https://github.com/hrsh7th/nvim-cmp" },
 	{ src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
 	{ src = "https://github.com/hrsh7th/cmp-buffer" },
@@ -58,13 +79,18 @@ require("plugins.nvim-lint")
 require("plugins.lualine")
 require("plugins.auto-session")
 require("plugins.bufferline")
--- require("plugins.indent-blankline")
+require("plugins.indent-blankline")
+require("plugins.todo-comments")
+require("plugins.themes")
 
 require("nvim-surround").setup()
-
 require("which-key").setup()
 require("fidget").setup()
 require("dressing").setup()
+
+-- require("mini.icons").setup({
+-- 	mock_nvim_web_devicons = true,
+-- })
 
 -- اختصارات التنقل بين Neovim و Tmux
 vim.keymap.set("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>", { silent = true })

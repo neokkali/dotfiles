@@ -4,22 +4,24 @@ local api = require("nvim-tree.api")
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- دالة ذكية لفتح الملفات
--- local function smart_open(filepath)
--- 	local buffers = vim.fn.getbufinfo({ buflisted = 1 })
--- 	local buf_count = #buffers
---
--- 	if buf_count <= 1 then
--- 		-- أول ملف: افتح في buffer الحالي
--- 		vim.cmd("edit " .. filepath)
--- 	else
--- 		-- ملفات أخرى: افتح في tab جديد
--- 		vim.cmd("tabnew " .. filepath)
--- 	end
--- end
+local function my_on_attach(bufnr)
+	local api = require("nvim-tree.api")
+
+	local function opts(desc)
+		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+	end
+
+	-- Default mappings
+	api.config.mappings.default_on_attach(bufnr)
+
+	-- Override Enter to open in a new tab
+	vim.keymap.set({ "i", "n" }, "t", api.node.open.tab, opts("Open: New Tab"))
+end
 
 nvimtree.setup({
-	view = { width = 38 },
+
+	on_attach = my_on_attach,
+	view = { width = 35 },
 	renderer = {
 		indent_markers = { enable = true },
 		icons = {
@@ -29,11 +31,25 @@ nvimtree.setup({
 		},
 	},
 	actions = {
-		open_file = { window_picker = { enable = false }, quit_on_open = false },
+		open_file = { window_picker = { enable = true }, quit_on_open = true },
 	},
 	filters = { custom = { ".DS_Store" } },
-	git = { ignore = false },
+	git = { enable = false, ignore = false },
 })
+
+-- require("nvim-tree").setup({
+--   git = {
+--     enable = true, -- Leaves background processing on
+--   },
+--   renderer = {
+--     highlight_git = false, -- Disables filename color changes
+--     icons = {
+--       show = {
+--         git = false, -- Hides the git icons (e.g., [✗], [✓], [★])
+--       },
+--     },
+--   },
+-- })
 
 vim.keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
 vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" })

@@ -10,28 +10,47 @@ local custom_actions = transform_mod({
 			return
 		end
 
-		local file_path = selection.path or selection.filename
-		local bufnr = vim.fn.bufnr(file_path)
+		-- [الحل المضاف]: إذا كان الاختيار عبارة عن Code Action (لا يحتوي على ملف أو بافر)
+		-- نترك تليسكوب ينفذ الإجراء الافتراضي الخاص به فوراً ونخرج من الدالة لتجنب الانهيار
+		local is_code_action = not selection.bufnr
+			and not selection.path
+			and not selection.filename
+			and not selection[1]
+		if is_code_action then
+			actions.select_default(prompt_bufnr)
+			return
+		end
 
-		-- جلب إحداثيات السطر والعمود (تليسكوب يستخدم 1-indexed للأسطر و 0-indexed للأعمدة غالباً)
+		-- جلب رقم البافر بأمان إن وجد (للأخطاء والملفات)
+		local bufnr = selection.bufnr
+		if not bufnr then
+			local file_path = selection.path or selection.filename or selection[1]
+			if type(file_path) == "string" then
+				bufnr = vim.fn.bufnr(file_path)
+			else
+				bufnr = -1
+			end
+		end
+
 		local lnum = selection.lnum
 		local col = selection.col or 1
 
 		local found = false
-		if bufnr ~= -1 then
+		-- التأكد من أن البافر صالح وموجود حالياً
+		if bufnr and bufnr ~= -1 and vim.api.nvim_buf_is_valid(bufnr) then
 			for _, tabnr in ipairs(vim.api.nvim_list_tabpages()) do
 				for _, winnr in ipairs(vim.api.nvim_tabpage_list_wins(tabnr)) do
 					if vim.api.nvim_win_get_buf(winnr) == bufnr then
-						-- إغلاق نافذة التليسكوب قبل التنقل
+						-- إغلاق نافذة التليسكوب قبل الانتقال
 						actions.close(prompt_bufnr)
 
-						-- الانتقال للتاب والنافذة
+						-- الانتقال للتاب والنافذة المفتوحة مسبقاً
 						vim.api.nvim_set_current_tabpage(tabnr)
 						vim.api.nvim_set_current_win(winnr)
 
-						-- توجيه المؤشر إلى مكان الخطأ بالتحديد إذا توفرت الإحداثيات
+						-- توجيه المؤشر بأمان
 						if lnum then
-							vim.api.nvim_win_set_cursor(winnr, { lnum, col })
+							pcall(vim.api.nvim_win_set_cursor, winnr, { lnum, col })
 						end
 
 						found = true
@@ -44,12 +63,11 @@ local custom_actions = transform_mod({
 			end
 		end
 
+		-- إذا كان ملفاً حقيقياً ولكنه غير مفتوح في أي تاب، افتحه في تاب جديد
 		if not found then
-			-- إذا لم يكن الملف مفتوحاً، نتركه لتليسكوب لفتحه في تاب جديد
 			actions.select_tab(prompt_bufnr)
-			-- بعد فتح التاب الجديد، نوجه المؤشر لمكان الخطأ
 			if lnum then
-				vim.api.nvim_win_set_cursor(0, { lnum, col })
+				pcall(vim.api.nvim_win_set_cursor, 0, { lnum, col })
 			end
 		end
 	end,
@@ -80,5 +98,4 @@ vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy
 vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
 vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
--- إضافة اختصار الأخطاء أسفل الإعدادات للتأكد من عمله بشكل سليم
 vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics<cr>", { desc = "Workspace Diagnostics" })

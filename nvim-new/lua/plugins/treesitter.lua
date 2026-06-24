@@ -8,6 +8,14 @@ treesitter.setup({ -- enable syntax highlighting
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
+
+		disable = function(_, buf)
+			local max_filesize = 100 * 1024
+
+			local ok, size = pcall(vim.api.nvim_buf_get_offset, buf, vim.api.nvim_buf_line_count(buf))
+
+			return ok and size > max_filesize
+		end,
 	},
 	-- enable indentation
 	indent = { enable = true },
@@ -39,10 +47,8 @@ local ensure_installed = {
 	"html",
 	"css",
 	"prisma",
-	"go",
 	"python",
 	"svelte",
-	"graphql",
 	"bash",
 	"dockerfile",
 	"gitignore",
@@ -58,9 +64,9 @@ nvim_ts_autotag.setup({
 	},
 })
 
--- vim.o.foldmethod = "manual"
--- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
--- vim.o.foldlevel = 99
+vim.o.foldmethod = "manual"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldlevel = 99
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "*",
@@ -84,4 +90,4 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.keymap.set("v", "<leader>z", ":normal! za<CR>", { desc = "Fold selected lines", noremap = true, silent = true })
-vim.keymap.set("v", "<leader>z", "za", { desc = "Folding lines", noremap = true, silent = true })
+vim.keymap.set("v", "<leader>za", "za", { desc = "Folding lines", noremap = true, silent = true })
